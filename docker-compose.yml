@@ -5,7 +5,7 @@ services:
     privileged: true
     working_dir: "/"
     volumes:
-      - ".:/go/src/github.com/mrzacarias/dinler"
+      - ".:/go/src/github.com/mrzacarias/docker-in-docker"
       - "/var/run/docker.sock:/var/run/docker.sock"
     command: pwd
 
@@ -15,7 +15,7 @@ services:
       context: .
       dockerfile: Dockerfile_service1
     volumes:
-      - .:/go/src/github.com/mrzacarias/dinler
+      - .:/go/src/github.com/mrzacarias/docker-in-docker
     command: tail -f /dev/null
 
   service2:
@@ -24,5 +24,5 @@ services:
       context: .
       dockerfile: Dockerfile_service2
     volumes:
-      - .:/go/src/github.com/mrzacarias/dinler
+      - .:/go/src/github.com/mrzacarias/docker-in-docker
     command: tail -f /dev/null
