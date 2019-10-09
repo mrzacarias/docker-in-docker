@@ -1,0 +1,28 @@
+version: '3.4'
+services:
+  master:
+    image: docker
+    privileged: true
+    working_dir: "/"
+    volumes:
+      - ".:/go/src/github.com/mrzacarias/dinler"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    command: pwd
+
+  service1:
+    container_name: daa_service1
+    build:
+      context: .
+      dockerfile: Dockerfile_service1
+    volumes:
+      - .:/go/src/github.com/mrzacarias/dinler
+    command: tail -f /dev/null
+
+  service2:
+    container_name: daa_service2
+    build:
+      context: .
+      dockerfile: Dockerfile_service2
+    volumes:
+      - .:/go/src/github.com/mrzacarias/dinler
+    command: tail -f /dev/null

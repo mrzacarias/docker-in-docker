@@ -1,0 +1,7 @@
+FROM golang:1.13-alpine AS builder
+WORKDIR /go/src/github.com/mrzacarias/dinler
+COPY ./ ./
+RUN CGO_ENABLED=0 go build -installsuffix 'static' -o /service1 ./cmd/service1
+
+FROM alpine AS final
+COPY --from=builder /service1 /service1
