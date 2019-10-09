@@ -7,7 +7,9 @@ Quick example of how calling docker inside docker containers, using a master-ser
 
 ## Status check
 You will able to access both of them by the master container:
+
 `$ docker-compose run master docker ps -a`
+
 ```
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                  PORTS               NAMES
 2e3e5fcdb7dd        docker              "docker-entrypoint.s…"   1 second ago        Up Less than a second                       dinler_master_run_d9c40778c035
@@ -18,8 +20,11 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ## Running services
 
 You can call the binaries for each one of the services from master as well:
+
 `$ ./script/run_service1.sh` or `$ docker-compose run master docker exec -it daa_service1 /service1`:
+
 ```2019/10/09 04:37:28 Hello from Service 1!```
 
-`$ ./script/run_service2.sh` or `$ docker-compose run master docker exec -it daa_service2 /service2`
+`$ ./script/run_service2.sh` or `$ docker-compose run master docker exec -it daa_service2 /service2`:
+
 ```2019/10/09 04:37:28 Hello from Service 2!```
