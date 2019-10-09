@@ -3,7 +3,8 @@
 Quick example of how calling docker inside docker containers, using a master-services approach.
 
 ## Setup
-`$ ./script/setup.sh` will build the service1 (`daa_service1`) and service2 (`daa_service2`) containers. Both are very simple golang applications.
+1. https://docs.docker.com/compose/install/
+1. `$ ./script/setup.sh` will build the service1 (`daa_service1`) and service2 (`daa_service2`) containers. Both are very simple golang applications.
 
 ## Status check
 You will able to access both of them by the master container:
